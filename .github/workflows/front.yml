@@ -54,15 +54,15 @@ jobs:
             pip install -r requirements.txt
           
             # Kill old process
+            # Kill old process
             pkill -f streamlit || true
             
             # Set API URL
             export API_URL=http://localhost:8084
             
-            # 🔥 Proper background execution (FIXED)
-            nohup bash -c 'source venv/bin/activate && streamlit run app.py --server.port 8501 --server.address 0.0.0.0' > app.log 2>&1 &
+            # 🔥 BEST FIX (detached process)
+            setsid bash -c 'source venv/bin/activate && streamlit run app.py --server.port 8501 --server.address 0.0.0.0' > app.log 2>&1 < /dev/null &
             
-            disown
             sleep 5
             
             echo "✅ Deployment completed"
