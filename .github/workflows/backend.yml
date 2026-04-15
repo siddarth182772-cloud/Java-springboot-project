@@ -13,7 +13,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      # 2️⃣ Prepare EC2 (install Java, Maven, Git)
+      # 2️⃣ Prepare EC2 (install Java, Maven, Git) yep_sidd
       - name: Prepare EC2
         uses: appleboy/ssh-action@v1.1.0
         with:
